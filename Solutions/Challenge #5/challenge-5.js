@@ -1,19 +1,9 @@
 function getMaxGifts(giftsCities, maxGifts, maxCities) {
-    let max_ciudades = 0
-    giftsCities.sort((a, b) => b - a)
-    if (giftsCities.length == 0)
-      return 0
-    giftsCities.forEach(element => {
-      if (element == maxGifts)
-        return maxGifts
-      else if (element > maxGifts)
-        giftsCities.shift()
-    })
-    return giftsCities.reduce((acc, actual) => {
-      if (max_ciudades < maxCities && acc + actual <= maxGifts && acc + actual != maxGifts - 1) {
-        acc += actual
-        max_ciudades++
-      }
-      return acc
-    }, 0)
-  }
+  return Math.max(0, ...(
+    [...giftsCities
+      .reduce((x, y) => x.concat(x.map(x => [y].concat(x))), [[]])]
+      .filter((combi) => combi.length <= maxCities)
+      .map((combi) => combi.reduce((acc, weight) => acc + weight, 0))
+      .filter((item) => item <= maxGifts))
+  );
+}
