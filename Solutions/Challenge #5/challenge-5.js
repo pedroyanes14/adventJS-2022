@@ -7,3 +7,6 @@ function getMaxGifts(giftsCities, maxGifts, maxCities) {
       .filter((item) => item <= maxGifts))
   );
 }
+
+//I copy it from here: https://github.com/mamunoz-dev/adventjs-2022/blob/main/day5.md
+//AMAZING JOB DONE BY THIS MAN!! :smile:
