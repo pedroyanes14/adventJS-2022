@@ -1,9 +1,16 @@
 function getCompleted(part, total) {
-  let resultado = 0
-  let trabajado = part.split(":")[0] * 3600 + part.split(":")[1] * 60 + part.split(":")[2]
-  let total = total.split(":")[0] * 3600 + total.split(":")[1] * 60 + total.split(":")[2]
-  if (trabajado === total)
-    return '1/1'
-  resultado = trabajado / total
-  return ''
+  const numerador = (part.split(":")[0] * 3600 + part.split(":")[1] * 60 + part.split(":")[2] * 1)
+  const denominador = (total.split(":")[0] * 3600 + total.split(":")[1] * 60 + total.split(":")[2] * 1)
+
+  const calculateGreatestCommonDivisor = (a, b) => {
+    while (b) {
+      const t = b
+      b = a % b
+      a = t
+    }
+    return a
+  }
+  
+  const gcd = calculateGreatestCommonDivisor(numerador, denominador);
+  return `${(numerador/gcd)}/${(denominador/gcd)}`
 }
