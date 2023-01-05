@@ -16,3 +16,5 @@ function checkStepNumbers(systemNames, stepNumbers) {
 
 //NOTE: It works but I don't understand why. Here ""if (numeros[i] >= numeros[i + 1]) return false""
 //it works with "">="" and I think it should only work with "">"", but it doesn't...  SMH :(
+
+//NOTE: I already understood why it works, I am dumb SMH :)
